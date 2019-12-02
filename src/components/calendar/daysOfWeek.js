@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 
-export default function DaysOfWeek(props) {
+export default function DaysOfWeek() {
   const weekdayshort = moment.weekdaysShort();
   const weekdayshortname = weekdayshort.map((day) => {
     return (<th key={day} className="week-day">

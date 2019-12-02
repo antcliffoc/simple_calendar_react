@@ -34,11 +34,27 @@ body {
   letter-spacing:1px;
 } */
 .calendar-navi {
-  font:15px 'Roboto'; 
-  font-weight:800; 
+  width: 100%;
+}
+
+.month-name {
+  font:12px 'Roboto'; 
+  font-weight:400; 
   color:#f7f3eb; 
   text-align:center;  
   height:42px;
+  width:33%; 
+  overflow:hidden; 
+  line-height:40px;
+} 
+
+.selected-month {
+  font:15px 'Roboto'; 
+  font-weight:600; 
+  color:#f7f3eb; 
+  text-align:center;  
+  height:42px; 
+  border-bottom: 1px solid #f7f3eb;
   /* display:inline-block;  */
   /* float:left;  */
   overflow:hidden; 
