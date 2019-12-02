@@ -6,15 +6,20 @@ import DaysInMonth from './daysInMonth';
 import MonthSelection from './monthSelection';
 
 export default function Calendar(props) {
-  const [dateObject] = useState(moment());
+  const [dateObject, setDateObject] = useState(moment());
+
+  function handleMonthChange(index) {
+    setDateObject(moment(dateObject).set('month', index));
+  }
+
   return (
     <div className="calendar-container">
-      <MonthSelection dateObject={dateObject}/>
+      <MonthSelection dateObject={dateObject} onChange={handleMonthChange}/>
       <table className="calenday-day">
         <thead>
           <DaysOfWeek />
         </thead>
-        <DaysInMonth dateObject={dateObject}/>
+        <DaysInMonth dateObject={dateObject} />
       </table>
     </div>
   );

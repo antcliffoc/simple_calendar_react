@@ -60,6 +60,12 @@ body {
   overflow:hidden; 
   line-height:40px;
 } 
+th:hover {
+  background: #7b71a8;
+}
+td:hover {
+  background: #7b71a8;
+}
 
 th.week-day {
   font:12px 'Roboto'; 

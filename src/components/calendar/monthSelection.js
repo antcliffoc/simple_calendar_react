@@ -2,13 +2,19 @@ import React, {useState} from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 
-export default function MonthSelection({dateObject}) {
-  console.log(dateObject);
+export default function MonthSelection({dateObject, onChange}) {
   const [allMonths] = useState(moment.months());
   const months = [];
-  allMonths.forEach((month) => {
+
+  function changeMonth(index) {
+    onChange(index);
+  }
+
+  allMonths.forEach((month, i) => {
     months.push(
-        <td key={`${month}`} className="month-name">{month}</td>
+        <td key={`${i}`}
+          className="month-name"
+          onClick={() => changeMonth(`${i}`)}>{month}</td>,
     );
   });
 
@@ -40,4 +46,5 @@ export default function MonthSelection({dateObject}) {
 
 MonthSelection.propTypes = {
   dateObject: PropTypes.any,
+  onChange: PropTypes.func,
 };

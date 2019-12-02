@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 
 export default function DaysInMonth({dateObject}) {
-  const [blanks] = useState([]);
+  const blanks = [];
   // const [daysInMonth, setDaysInMonth] = useState([])
   function firstDayOfMonth() {
     const firstDay = moment(dateObject).startOf('month').format('d');
@@ -12,7 +12,7 @@ export default function DaysInMonth({dateObject}) {
 
   for (let i = 0; i < firstDayOfMonth(); i++) {
     blanks.push(
-        <td className="calendar-day empty">{''}</td>
+        <td key={`blank.${i}`} className="calendar-day empty">{''}</td>,
     );
   }
 
@@ -26,7 +26,7 @@ export default function DaysInMonth({dateObject}) {
     daysInMonth.push(
         <td key={d} className={`calendar-day ${isToday}`}>
           {d}
-        </td>
+        </td>,
     );
   }
 
@@ -48,7 +48,6 @@ export default function DaysInMonth({dateObject}) {
       rows.push(cells);
     }
   });
-  // potential reasign to let
   const daysinmonth = rows.map((d, i) => {
     return <tr key={i}>{d}</tr>;
   });
