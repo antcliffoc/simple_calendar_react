@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import moment from 'moment';
+import './calendar.css';
 
 export default function Calendar(props) {
   const [dateObject] = useState(moment());
@@ -61,17 +62,15 @@ export default function Calendar(props) {
   });
 
   return (
-    <div>
-      <div>
-        <table className="calenday-day">
-          <thead>
-            <tr>{weekdayshortname}</tr>
-          </thead>
-          <tbody>
-            {daysinmonth}
-          </tbody>
-        </table>
-      </div>
+    <div className="calendar-container">
+      <table className="calenday-day">
+        <thead>
+          <tr>{weekdayshortname}</tr>
+        </thead>
+        <tbody>
+          {daysinmonth}
+        </tbody>
+      </table>
     </div>
   );
 }
