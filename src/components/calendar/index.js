@@ -6,7 +6,6 @@ import DaysInMonth from './daysInMonth';
 
 export default function Calendar(props) {
   const [dateObject] = useState(moment());
-
   return (
     <div className="calendar-container">
       <div className="calendar-navi">{dateObject.format('MMMM')}</div>

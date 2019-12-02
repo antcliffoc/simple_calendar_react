@@ -26,6 +26,5 @@ module.exports = {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "require-jsdoc": 0,
-    "eqeqeq": 0
   },
 };

@@ -3,7 +3,6 @@ import moment from 'moment';
 import PropTypes from 'prop-types';
 
 export default function DaysInMonth({dateObject}) {
-  console.log(dateObject);
   const [blanks] = useState([]);
   // const [daysInMonth, setDaysInMonth] = useState([])
   function firstDayOfMonth() {
@@ -18,12 +17,12 @@ export default function DaysInMonth({dateObject}) {
   }
 
   function currentDay() {
-    return dateObject.format('D');
+    return parseInt(dateObject.format('D'));
   };
 
   const daysInMonth = [];
   for (let d = 1; d <= moment(dateObject).daysInMonth(); d++) {
-    const isToday = d == currentDay() ? 'today' : '';
+    const isToday = d === currentDay() ? 'today' : '';
     daysInMonth.push(
         <td key={d} className={`calendar-day ${isToday}`}>
           {d}
