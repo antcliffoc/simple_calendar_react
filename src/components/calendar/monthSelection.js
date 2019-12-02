@@ -35,12 +35,9 @@ export default function MonthSelection({dateObject, onChange}) {
     return <tr key={i}>{row}</tr>;
   });
   return (
-    <div>
-      <div className="selected-month">{dateObject.format('MMMM')}</div>
-      <table className="calendar-navi">
-        <tbody>{monthlist}</tbody>
-      </table>
-    </div>
+    <table className="calendar-navi">
+      <tbody>{monthlist}</tbody>
+    </table>
   );
 }
 
