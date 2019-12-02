@@ -17,7 +17,11 @@ export default function DaysInMonth({dateObject}) {
   }
 
   function currentDay() {
-    return parseInt(dateObject.format('D'));
+    if (dateObject.format('MMM') === moment().format('MMM')) {
+      return parseInt(dateObject.format('D'));
+    } else {
+      return false;
+    }
   };
 
   const daysInMonth = [];

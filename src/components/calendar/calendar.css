@@ -48,23 +48,35 @@ body {
   line-height:40px;
 } 
 
-.selected-month {
+.calendar-title {
   font:18px 'Roboto'; 
   font-weight:400; 
-  color:#f7f3eb; 
-  text-align:center;  
+  color:#f7f3eb;   
   height:42px; 
+  text-align: center;
   border-bottom: 1px solid #f7f3eb;
   /* display:inline-block;  */
   /* float:left;  */
   overflow:hidden; 
   line-height:40px;
 } 
-th:hover {
-  background: #7b71a8;
+
+.selected-month{
+  text-align: center; 
 }
-td:hover {
-  background: #7b71a8;
+
+.selected-year{
+  text-align: right;
+  float: right;  
+}
+
+.selected-month:hover {
+  cursor: pointer;
+  color: #f1c7f5;
+}
+table.calendar-navi td:hover {
+  color: #6a618f;
+  cursor: pointer;
 }
 
 th.week-day {

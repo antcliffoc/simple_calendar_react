@@ -20,12 +20,14 @@ export default function Calendar(props) {
 
   return (
     <div className="calendar-container">
-      <div className="selected-month"
-        onClick={() => toggleMonthTable()}>
-        {dateObject.format('MMMM')}
+      <div className="calendar-title">
+        <span className="selected-month"
+          onClick={() => toggleMonthTable()}>
+          {dateObject.format('MMMM')}</span>
+        <span className="selected-year">{dateObject.format('Y')}</span>
       </div>
-      {/* eslint-disable-next-line max-len */}
-      {showMonths && <MonthSelection dateObject={dateObject} onChange={handleMonthChange} />}
+      {showMonths && <MonthSelection dateObject={dateObject}
+        onChange={handleMonthChange} />}
       {!showMonths && <table className="calenday-day">
         <thead>
           <DaysOfWeek />
