@@ -1,73 +1,73 @@
 @import url(https://fonts.googleapis.com/css?family=Fjalla+One:400|Roboto:400,400italic,700);
 
 body {
-  background-color:#282423;
+  background-color: #282423;
 }
 
 .calendar-container {
-  width:334px; 
-  background:#332f2e; 
-  border-radius:5px; 
-  overflow:hidden; 
-  display:block; 
-  margin-bottom:10px; 
-  box-shadow:0 0 10px #201d1c; 
-  margin:0 auto; 
-  margin-top:100px;
-  padding:10px 10px 10px 10px; 
-  box-sizing:border-box!important; 
-  background:#7b71a8; 
-  background: -webkit-linear-gradient(#7b71a8, #eeb7f3)!important; 
-  background: -o-linear-gradient(#7b71a8,#eeb7f3)!important; 
-  background: -moz-linear-gradient(#7b71a8, #eeb7f3)!important; 
-  background: linear-gradient(#7b71a8, #eeb7f3)!important;
+  width: 334px;
+  background: #332f2e;
+  border-radius: 20px;
+  overflow: hidden;
+  display: block;
+  margin-bottom: 10px;
+  box-shadow: 0 0 10px #201d1c;
+  margin: 0 auto;
+  margin-top: 100px;
+  padding: 10px 10px 10px 10px;
+  box-sizing: border-box !important;
+  background: #7b71a8;
+  background: -webkit-linear-gradient(#7b71a8, #eeb7f3) !important;
+  background: -o-linear-gradient(#7b71a8, #eeb7f3) !important;
+  background: -moz-linear-gradient(#7b71a8, #eeb7f3) !important;
+  background: linear-gradient(#7b71a8, #eeb7f3) !important;
 }
 
-/* .jzdcalt {
-  font:18px 'Roboto'; 
-  font-weight:700; 
-  color:#f7f3eb; 
-  display:block; 
-  margin:18px 0 0 0; 
-  text-transform:uppercase; 
-  text-align:center; 
-  letter-spacing:1px;
-} */
 .calendar-navi {
   width: 100%;
 }
 
-.month-name {
-  font:16px 'Roboto'; 
-  font-weight:400; 
-  color:#f7f3eb; 
-  text-align:center;  
-  height:42px;
-  width:33%; 
-  overflow:hidden; 
-  line-height:40px;
-} 
-
-.calendar-title {
-  font:18px 'Roboto'; 
-  font-weight:400; 
-  color:#f7f3eb;   
-  height:42px; 
+.calendar-month {
+  font: 16px 'Roboto';
+  font-weight: 400;
+  color: #f7f3eb;
   text-align: center;
-  border-bottom: 1px solid #f7f3eb;
-  /* display:inline-block;  */
-  /* float:left;  */
-  overflow:hidden; 
-  line-height:40px;
-} 
-
-.selected-month{
-  text-align: center; 
+  height: 42px;
+  width: 33%;
+  overflow: hidden;
+  line-height: 40px;
 }
 
-.selected-year{
+.calendar-year {
+  font: 16px 'Roboto';
+  font-weight: 400;
+  color: #f7f3eb;
+  text-align: center;
+  height: 42px;
+  width: 33%;
+  overflow: hidden;
+  line-height: 40px;
+}
+
+.calendar-title {
+  font: 18px 'Roboto';
+  font-weight: 400;
+  color: #f7f3eb;
+  height: 42px;
+  text-align: center;
+  border-bottom: 1px solid #f7f3eb;
+  overflow: hidden;
+  line-height: 40px;
+}
+
+.selected-month {
+  text-align: center;
+}
+
+.selected-year {
   text-align: right;
-  float: right;  
+  float: right;
+  padding-right: 20px;
 }
 
 .selected-month:hover {
@@ -80,55 +80,30 @@ table.calendar-navi td:hover {
 }
 
 th.week-day {
-  font:14px 'Roboto'; 
-  font-weight:400; 
-  color:#f7f3eb; 
-  text-align:center; 
-  width:42px; 
-  height:42px; 
+  font: 14px 'Roboto';
+  font-weight: 400;
+  color: #f7f3eb;
+  text-align: center;
+  width: 42px;
+  height: 42px;
   border-bottom: 1px solid #f7f3eb;
-  /* display:inline-block;  */
-  /* float:left;  */
-  overflow:hidden; 
-  line-height:40px;
-} 
+  overflow: hidden;
+  line-height: 40px;
+}
 
 td.calendar-day {
-  font:14px 'Roboto'; 
-  font-weight:400; 
-  color:#f7f3eb; 
-  text-align:center; 
-  width:42px; 
-  height:42px; 
-  /* display:inline-block;  */
-  /* float:left;  */
-  overflow:hidden; 
-  line-height:40px;
+  font: 14px 'Roboto';
+  font-weight: 400;
+  color: #f7f3eb;
+  text-align: center;
+  width: 42px;
+  height: 42px;
+  overflow: hidden;
+  line-height: 40px;
 }
-
-/* .jzdcal .jzdb:before {
-  opacity:0.3; 
-  content:'o';
-} */
 
 .today {
-  border:1px solid #f7f3eb; 
-  box-sizing:border-box!important; 
-  border-radius:200px!important;
+  border: 1px solid #f7f3eb;
+  box-sizing: border-box !important;
+  border-radius: 200px !important;
 }
-
-/* td[data-title]:hover:after, 
-div[data-title]:hover:after {
-  font:11px 'Roboto'; 
-  font-weight:400; 
-  content:attr(data-title); 
-  position:absolute; 
-  margin:0 0 100px; 
-  background:#282423; 
-  border:1px solid #f7f3eb; 
-  color:#f7f3eb; 
-  padding:5px; 
-  z-index:9999; 
-  min-width:150px; 
-  max-width:150px;
-} */

@@ -12,25 +12,33 @@ export default function DaysInMonth({dateObject}) {
 
   for (let i = 0; i < firstDayOfMonth(); i++) {
     blanks.push(
-        <td key={`blank.${i}`} className="calendar-day empty">{''}</td>,
+      <td key={`blank.${i}`} className="calendar-day empty">
+        {''}
+      </td>,
     );
   }
 
   function currentDay() {
-    if (dateObject.format('MMM') === moment().format('MMM')) {
+    if (
+      dateObject.format('MMM') === moment().format('MMM') &&
+      dateObject.format('YYYY') === moment().format('YYYY')
+    ) {
       return parseInt(dateObject.format('D'));
     } else {
       return false;
     }
-  };
+  }
 
   const daysInMonth = [];
   for (let d = 1; d <= moment(dateObject).daysInMonth(); d++) {
-    const isToday = d === currentDay() ? 'today' : '';
+    const isToday =
+
+        d === currentDay() ? 'today' :
+        '';
     daysInMonth.push(
-        <td key={d} className={`calendar-day ${isToday}`}>
-          {d}
-        </td>,
+      <td key={d} className={`calendar-day ${isToday}`}>
+        {d}
+      </td>,
     );
   }
 
@@ -48,7 +56,8 @@ export default function DaysInMonth({dateObject}) {
       // eslint-disable-next-line max-len
       cells.push(row); // in current loop we still push current row to new container
     }
-    if (i === totalSlots.length - 1) { // when end loop we add remain date
+    if (i === totalSlots.length - 1) {
+      // when end loop we add remain date
       rows.push(cells);
     }
   });
@@ -56,11 +65,9 @@ export default function DaysInMonth({dateObject}) {
     return <tr key={i}>{d}</tr>;
   });
 
-  return (
-    <tbody>{daysinmonth}</tbody>
-  );
+  return <tbody>{daysinmonth}</tbody>;
 }
 
 DaysInMonth.propTypes = {
-  dateObject: PropTypes.any,
+  dateObject : PropTypes.any,
 };

@@ -12,16 +12,20 @@ export default function MonthSelection({dateObject, onChange}) {
 
   allMonths.forEach((month, i) => {
     months.push(
-        <td key={`${i}`}
-          className="month-name"
-          onClick={() => changeMonth(`${i}`)}>{month}</td>,
+      <td
+        key={`${i}`}
+        className="calendar-month"
+        onClick={() => changeMonth(`${i}`)}>
+        {month}
+      </td>,
     );
   });
 
   const rows = [];
   let cells = [];
   months.forEach((row, i) => {
-    if (i % 3 !== 0 || i === 0) { // except zero index
+    if (i % 3 !== 0 || i === 0) {
+      // except zero index
       cells.push(row);
     } else {
       rows.push(cells);
@@ -35,13 +39,13 @@ export default function MonthSelection({dateObject, onChange}) {
     return <tr key={i}>{row}</tr>;
   });
   return (
-    <table className="calendar-navi">
+    <table className="calendar-navi month">
       <tbody>{monthlist}</tbody>
     </table>
   );
 }
 
 MonthSelection.propTypes = {
-  dateObject: PropTypes.any,
-  onChange: PropTypes.func,
+  dateObject : PropTypes.object,
+  onChange   : PropTypes.func,
 };
