@@ -51,11 +51,13 @@ export default function Calendar(props) {
     <div className="calendar-container">
       <div className="calendar-title">
         <span
-          className="selected-month"
+          className="selected-title month"
           onClick={() => toggleSelection('month')}>
           {dateObject.format('MMMM')}
         </span>
-        <span className="selected-year" onClick={() => toggleSelection('year')}>
+        <span
+          className="selected-title year"
+          onClick={() => toggleSelection('year')}>
           {dateObject.format('Y')}
         </span>
       </div>

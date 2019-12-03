@@ -60,17 +60,17 @@ body {
   line-height: 40px;
 }
 
-.selected-month {
+.selected-title.month {
   text-align: center;
 }
 
-.selected-year {
+.selected-title.year {
   text-align: right;
   float: right;
   padding-right: 20px;
 }
 
-.selected-month:hover {
+.selected-title:hover {
   cursor: pointer;
   color: #f1c7f5;
 }
