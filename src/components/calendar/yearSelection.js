@@ -3,9 +3,10 @@ import moment from 'moment';
 import PropTypes from 'prop-types';
 
 export default function YearSelection({onChange}) {
-  const dateNow = moment();
+  const dateNow = moment().format('YYYY');
   const years = [];
-  const nextTwelve = moment().set('year', dateNow.format('YYYY')).add(12, 'y');
+  const nextFive = moment().set('year', dateNow).add(7, 'y');
+  const prevSix = moment().set('year', dateNow).subtract(7, 'y');
 
   function getDates(startDate, stopDate) {
     const dateArray = [];
@@ -22,13 +23,17 @@ export default function YearSelection({onChange}) {
     onChange(year);
   }
 
-  const twelveYears = getDates(dateNow, nextTwelve);
+  const fifteenYears = getDates(prevSix, nextFive);
 
-  twelveYears.forEach((year) => {
+  fifteenYears.forEach((year) => {
+    const isCurrentYear =
+
+        year === dateNow ? 'today' :
+        '';
     years.push(
       <td
         key={year}
-        className="calendar-year"
+        className={`calendar-year ${isCurrentYear}`}
         onClick={() => {
           changeYear(year);
         }}>
@@ -39,16 +44,17 @@ export default function YearSelection({onChange}) {
   const rows = [];
   let cells = [];
 
-  years.forEach((row, i) => {
+  years.forEach((year, i) => {
     if (i % 3 !== 0 || i === 0) {
-      cells.push(row);
+      cells.push(year);
     } else {
       rows.push(cells);
       cells = [];
-      cells.push(row);
+      cells.push(year);
     }
   });
   rows.push(cells);
+
   const yearlist = rows.map((d, i) => {
     return <tr key={`year ${i}`}>{d}</tr>;
   });
