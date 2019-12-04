@@ -2,18 +2,50 @@ import React from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 
-export default function DaysInMonth({dateObject}) {
+export default function DaysInMonth({dateObject, selectedDate, onSelection}) {
   const blanks = [];
-  // const [daysInMonth, setDaysInMonth] = useState([])
+  const daysInMonth = [];
+
   function firstDayOfMonth() {
     const firstDay = moment(dateObject).startOf('month').format('d');
     return firstDay;
   }
-
+  // populate blanks.
   for (let i = 0; i < firstDayOfMonth(); i++) {
     blanks.push(
       <td key={`blank.${i}`} className="calendar-day empty">
         {''}
+      </td>,
+    );
+  }
+  // populate days in month
+  for (let d = 1; d <= moment(dateObject).daysInMonth(); d++) {
+    // create a date id for each day
+    const dateFormatted = moment(dateObject)
+      .set('date', d)
+      .format('YYYY-MM-DD');
+    // check to see if date is today
+    // this is using ternary expression.
+    const isToday =
+
+        d === currentDay() ? 'today' :
+        '';
+    // check to see if date is selected
+    // this is using ternary expression.
+    const isSelected =
+
+        dateFormatted === selectedDate ? 'selected' :
+        '';
+    // add td for each day of month
+    daysInMonth.push(
+      <td
+        key={d}
+        id={dateFormatted}
+        className={`calendar-day ${isToday} ${isSelected}`}
+        onClick={() => {
+          clickOnDay(d);
+        }}>
+        {d}
       </td>,
     );
   }
@@ -29,17 +61,12 @@ export default function DaysInMonth({dateObject}) {
     }
   }
 
-  const daysInMonth = [];
-  for (let d = 1; d <= moment(dateObject).daysInMonth(); d++) {
-    const isToday =
-
-        d === currentDay() ? 'today' :
-        '';
-    daysInMonth.push(
-      <td key={d} className={`calendar-day ${isToday}`}>
-        {d}
-      </td>,
-    );
+  function clickOnDay(day) {
+    // const dateClicked = moment(dateObject)
+    //   .set('date', day)
+    //   .format('YYYY-MM-DD');
+    // setSelectedDate(dateClicked);
+    onSelection(day);
   }
 
   const totalSlots = [...blanks, ...daysInMonth];
@@ -61,6 +88,7 @@ export default function DaysInMonth({dateObject}) {
       rows.push(cells);
     }
   });
+
   const daysinmonth = rows.map((d, i) => {
     return <tr key={i}>{d}</tr>;
   });
@@ -69,5 +97,7 @@ export default function DaysInMonth({dateObject}) {
 }
 
 DaysInMonth.propTypes = {
-  dateObject : PropTypes.any,
+  dateObject   : PropTypes.object,
+  selectedDate : PropTypes.object,
+  onSelection  : PropTypes.func,
 };

@@ -11,6 +11,14 @@ export default function Calendar(props) {
   const [showMonths, setShowMonths] = useState(false);
   const [showCalendar, setShowCalendar] = useState(true);
   const [showYears, setShowYears] = useState(false);
+  const [selectedDate, setSelectedDate] = useState(null);
+
+  function handleDateSelection(day) {
+    const dateClicked = moment(dateObject)
+      .set('date', day)
+      .format('YYYY-MM-DD');
+    setSelectedDate(dateClicked);
+  }
 
   function handleMonthChange(index) {
     setDateObject(moment(dateObject).set('month', index));
@@ -72,7 +80,11 @@ export default function Calendar(props) {
           <thead>
             <DaysOfWeek />
           </thead>
-          <DaysInMonth dateObject={dateObject} />
+          <DaysInMonth
+            dateObject={dateObject}
+            selectedDate={selectedDate}
+            onSelection={handleDateSelection}
+          />
         </table>
       )}
     </div>

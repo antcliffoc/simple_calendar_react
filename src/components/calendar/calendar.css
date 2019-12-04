@@ -107,3 +107,11 @@ td.calendar-day {
   box-sizing: border-box !important;
   border-radius: 200px !important;
 }
+
+.selected {
+  color: #7b71a8 !important;
+  border: 1px solid #7b71a8;
+  box-sizing: border-box !important;
+  border-radius: 200px !important;
+  background: #eeb7f3;
+}
